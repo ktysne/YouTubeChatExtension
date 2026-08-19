@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Chat Width & Popout Hider",
+  "version": "1.0.0",
+  "description": "YouTube ライブ配信のチャット欄をドラッグで横幅変更できるようにし、チャットをポップアウトしている間はページ内のチャット領域を非表示にします。",
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Chat Width & Popout Hider"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "exclude_matches": [
+        "https://www.youtube.com/live_chat*",
+        "https://www.youtube.com/embed/*"
+      ],
+      "js": [
+        "watch.js"
+      ],
+      "css": [
+        "watch.css"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/live_chat*"
+      ],
+      "js": [
+        "popout.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

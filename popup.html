@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: system-ui, sans-serif; font-size: 13px; width: 260px; margin: 0; padding: 12px; color: #111; }
+  h1 { font-size: 14px; margin: 0 0 10px; }
+  label { display: flex; align-items: center; gap: 8px; margin: 8px 0; cursor: pointer; }
+  .row { display: flex; align-items: center; gap: 8px; margin: 8px 0; }
+  input[type=number] { width: 70px; }
+  button { cursor: pointer; }
+  .note { color: #666; font-size: 11px; margin-top: 10px; line-height: 1.5; }
+</style>
+</head>
+<body>
+  <h1>YouTube Chat Width</h1>
+  <label><input type="checkbox" id="hideOnPopout"> ポップアウト中はページ内チャットを非表示</label>
+  <div class="row">
+    <span>チャット幅:</span>
+    <input type="number" id="width" min="250" step="10" placeholder="既定">
+    <span>px</span>
+    <button id="reset">既定に戻す</button>
+  </div>
+  <div class="note">
+    幅はチャット欄の左端をドラッグしても変更できます。左端をダブルクリックすると既定幅に戻ります。
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

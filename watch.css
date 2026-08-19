@@ -1,0 +1,37 @@
+/* ドラッグハンドル（チャット欄の左端） */
+#ycw-resize-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 10px;
+  margin-left: -4px;
+  cursor: ew-resize;
+  z-index: 2147483646;
+  background: transparent;
+  transition: background-color 0.15s;
+  user-select: none;
+  touch-action: none;
+}
+#ycw-resize-handle:hover,
+#ycw-resize-handle.ycw-dragging {
+  background: rgba(62, 166, 255, 0.55);
+}
+
+/* ドラッグ中は iframe にマウスイベントを奪われないようにする */
+html.ycw-dragging-active,
+html.ycw-dragging-active * {
+  cursor: ew-resize !important;
+}
+html.ycw-dragging-active iframe#chatframe {
+  pointer-events: none !important;
+}
+
+/* ポップアウト中の非表示用（YouTube 側の collapse に失敗した場合のフォールバック） */
+html.ycw-force-hide-chat ytd-watch-flexy ytd-live-chat-frame#chat {
+  display: none !important;
+}
+html.ycw-force-hide-chat ytd-watch-flexy[fixed-panels] {
+  --ytd-watch-flexy-sidebar-width: 0px !important;
+  --ytd-watch-flexy-sidebar-min-width: 0px !important;
+}
