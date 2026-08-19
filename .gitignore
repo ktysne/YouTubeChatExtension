@@ -1,3 +1,25 @@
+# OS / editor cruft
 .DS_Store
 Thumbs.db
+*.swp
+*~
+
+# Packaged extension artifacts
 *.zip
+*.crx
+*.pem
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Claude Code のローカル設定 (vendored スキルだけをコミットする)
+.claude/*
+!.claude/skills/
+.claude/skills/*
+!.claude/skills/cross-review/
+.claude/skills/cross-review/*
+!.claude/skills/cross-review/SKILL.md
+
+# CodeGraph の索引 (SQLite DB 等。マシンローカルの生成物なので非同梱)
+/.codegraph/

@@ -1,0 +1,14 @@
+{
+  "name": "youtube-chat-extension",
+  "private": true,
+  "description": "クロスレビュー (ai-cross-review) 実行用の npm scripts。本体は Chrome 拡張機能 (manifest.json) でビルド工程はない。",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "check": "node --check watch.js && node --check background.js && node --check popout.js && node --check popup.js",
+    "review:codex": "node tools/cross-review.js codex",
+    "review:codex:fix": "node tools/cross-review.js codex --fix",
+    "review:claude": "node tools/cross-review.js claude",
+    "sync": "node tools/cross-review.sync.js",
+    "sync:check": "node tools/cross-review.sync.js --check"
+  }
+}

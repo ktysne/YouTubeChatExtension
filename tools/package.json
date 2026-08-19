@@ -1,0 +1,6 @@
+{
+  "name": "youtube-chat-extension-tools",
+  "private": true,
+  "description": "tools/*.js は CommonJS (require) で書かれているため、type を明示する。",
+  "type": "commonjs"
+}
