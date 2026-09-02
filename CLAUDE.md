@@ -13,13 +13,6 @@
 
 コード中の識別子（変数名・関数名など）は慣例どおり英語でよい。コメントやドキュメントは日本語で書く。
 
-## モデル役割分担（メインセッションとサブエージェント）
-
-メインセッションは設計・監査・レビューに専念し、実装は下位モデルのサブエージェント（Agent ツール）に切り出すことを基本とする。ただし、実装難易度が特に高い箇所はメインセッションが直接実装してよい。
-
-- **メインセッションが Fable の場合**: 実装は Opus / Sonnet のサブエージェントに適切に切り出して実行する。
-- **メインセッションが Opus の場合**: 実装は Sonnet のサブエージェントに切り出して実行する。
-
 ## プロジェクト概要
 
 YouTube ライブ配信のチャット欄をドラッグで横幅変更し、ポップアウト中はページ内チャットを非表示にする Chrome 拡張機能（Manifest V3）。
@@ -32,21 +25,6 @@ YouTube ライブ配信のチャット欄をドラッグで横幅変更し、ポ
 ```powershell
 node --check watch.js; node --check background.js; node --check popout.js; node --check popup.js   # 構文チェック
 ```
-
-## CodeGraph（コード索引）
-
-`codegraph` でリポジトリを索引しておくと、grep やファイル走査の代わりに「どのシンボルがどこから呼ばれているか」を 1 コマンドで引ける。
-索引（`.codegraph/`）は SQLite の生成物でマシンローカルなので **コミットしない**（`.gitignore` 済み）。
-クローン直後に一度 `codegraph init` を実行すること。
-
-```powershell
-codegraph init                             # 初回。索引を作る
-codegraph sync                             # 前回からの差分を反映
-codegraph explore "<シンボル名 or 質問>"   # 関連シンボルの実ソース + 呼び出し経路
-codegraph status                           # 索引の状態
-```
-
-MCP が有効なセッションでは `codegraph_explore` / `codegraph_context` を同じ用途で使える。
 
 ## クロスレビュー（ai-cross-review）
 
