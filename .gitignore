@@ -23,3 +23,7 @@ npm-debug.log*
 
 # CodeGraph の索引 (SQLite DB 等。マシンローカルの生成物なので非同梱)
 /.codegraph/
+
+# ai-cross-review のローカル状態と生成物 (往復回数、レビュー出力、PR コメント本文)
+.cross-review-state.json
+.cross-review/
