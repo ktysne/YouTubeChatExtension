@@ -31,6 +31,7 @@ node --check watch.js; node --check background.js; node --check popout.js; node 
 `CLAUDE.md` と `AGENTS.md` は同一内容を保つ。どちらか一方を変更した場合は、必ずもう一方にも同じ変更を反映すること。片方だけを更新した状態でコミットしてはならない。ただし、片方のエージェントにしか関係しない記述は同期の対象外とする。「モデル役割分担」は Claude のサブエージェント運用を定めた節なので、`CLAUDE.md` にだけ置き、Codex 向けの `AGENTS.md` には書かない。
 
 ## リモートセッション時の作業について
+この節は、~/.claude 配下(グローバル CLAUDE.md、スキル、エージェント定義、codex-agent.sh)を読めないクラウド実行のための代替である。Claude Code のローカル実行では `~/.claude/CLAUDE.md` の規則に従う。
 
 ### AI 相互レビュー（ai-cross-review）
 相互レビューの手順の正本は [docs/cross-review.md](docs/cross-review.md)（vendored）と、グローバル SKILL `~/.claude/skills/cross-review/SKILL.md`（無い環境では vendored の [.claude/skills/cross-review/SKILL.md](.claude/skills/cross-review/SKILL.md)）である。
