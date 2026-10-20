@@ -57,5 +57,5 @@ node --check watch.js; node --check background.js; node --check popout.js; node 
 3 択、サーキットブレーカー、PR 運用といった汎用ルールはここに写さず、SKILL を参照する。
 
 - 検証コマンド: `npm run check`（`node --check` による 4 ファイルの構文チェック。ビルド工程もテストも無い）
-- 基盤の更新: `npm run sync`（検査は `npm run sync:check`、上流の配布物の取りこぼし確認は `node tools/cross-review.sync.js --check-manifest`）で上流から取り込む。更新手順は「同期 → 表示された移行ノートの作業 → 上の検証コマンド」の順。
+- 基盤の更新: `npm run sync`（検査は `npm run sync:check`、上流の配布物の取りこぼし確認は `node tools/cross-review.js sync --check-manifest`）で上流から取り込む。更新手順は「同期 → 表示された移行ノートの作業 → 上の検証コマンド」の順。
 - レビューの起点: 既定のレビュアーは実装者と別のベンダーで、実装を一区切りしたら 3 択を `AskUserQuestion` で提示する（詳細は SKILL）。指摘、対応、妥当性確認は PR コメントに残し、本文は `.cross-review/round-<N>-triage.md` を書いて `node tools/cross-review.js comment --round <N>` で生成する。
